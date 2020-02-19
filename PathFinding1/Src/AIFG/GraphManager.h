@@ -22,5 +22,6 @@ public:
 
 	std::vector<int> openList;
 	std::vector<int> closedList;
+	std::vector<int> totalList;
 };
 
