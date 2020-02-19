@@ -13,8 +13,16 @@ public:
 	// so there can be multiple nodes to path to. 
 	int* toNodes;
 
+	float cost;
+
 	// the non-negative cost of this connection
 	float getCost();
+
+	// still potential refactors
+	int* getFromeNode();
+
+	// still potential refactors
+	int* getToNode();
 
 };
 

@@ -120,12 +120,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Src\AIFG\PathfindingList.cpp" />
     <ClCompile Include="Src\AIFG\NodeRecord.cpp" />
     <ClCompile Include="Src\AIFG\GraphManager.cpp" />
     <ClCompile Include="Src\AIFG\Connection.cpp" />
     <ClCompile Include="Src\AIFG\Graph.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\AIFG\PathfindingList.h" />
     <ClInclude Include="Src\AIFG\NodeRecord.h" />
     <ClInclude Include="Src\AIFG\GraphManager.h" />
     <ClInclude Include="Src\AIFG\Connection.h" />

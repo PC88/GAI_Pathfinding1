@@ -30,6 +30,9 @@
     <ClCompile Include="Src\AIFG\Connection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\AIFG\PathfindingList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\AIFG\Graph.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\AIFG\Connection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\AIFG\PathfindingList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
