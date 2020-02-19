@@ -9,9 +9,9 @@ public:
 	int goalNode;
 
 	// Estimated cost to kove between any two nodes.
-	float estimate(int toNode, int fromNode);
+	//float estimate(int toNode, int fromNode);
 
 	// an estimated cost to reach the goal from the given node.
-	float estimate(int fromNode);
+	//float estimate(int fromNode);
 };
 

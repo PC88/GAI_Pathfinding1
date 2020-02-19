@@ -11,7 +11,7 @@ Heuristic::~Heuristic()
 {
 }
 
-float Heuristic::estimate(int fromNode)
-{
-	return estimate(fromNode, goalNode);
-}
+//float Heuristic::estimate(int fromNode)
+//{
+//	return estimate(fromNode, goalNode);
+//}
