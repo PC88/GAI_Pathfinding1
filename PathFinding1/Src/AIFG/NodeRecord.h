@@ -13,5 +13,12 @@ public:
 	int node;
 	Connection connection;
 	float costSoFar;
+	float estimatedTotalCost;
+	int nextRecordInList;
+};
+
+enum class Category
+{
+	CLOSED = 0, OPEN = 1, UNVISITED = 2
 };
 
