@@ -1,9 +1,9 @@
 #pragma once
-class Connections
+class Connection
 {
 public:
-	Connections();
-	virtual ~Connections();
+	Connection();
+	virtual ~Connection();
 
 	// the node that this connections came from
 	int* fromNode;

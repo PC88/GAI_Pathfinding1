@@ -18,18 +18,30 @@
     <ClCompile Include="Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\AIFG\Connections.cpp">
+    <ClCompile Include="Src\AIFG\Graph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\AIFG\Graph.cpp">
+    <ClCompile Include="Src\AIFG\GraphManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\AIFG\NodeRecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\AIFG\Connection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\AIFG\Connections.h">
+    <ClInclude Include="Src\AIFG\Graph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\AIFG\Graph.h">
+    <ClInclude Include="Src\AIFG\GraphManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\AIFG\NodeRecord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\AIFG\Connection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
