@@ -53,7 +53,6 @@ int main()
 
 	graph_t::vertex_iterator vertexIt, vertexEnd;
 	graph_t::in_edge_iterator inedgeIt, inedgeEnd;
-	graph_t::in_edge_iterator outedgeIt, outedgeEnd;
 
 	tie(vertexIt, vertexEnd) = vertices(graph);
 	for (; vertexIt != vertexEnd; ++vertexIt)
@@ -62,7 +61,9 @@ int main()
 		tie(inedgeIt, inedgeEnd) = in_edges(*vertexIt, graph);
 		for (; inedgeIt != inedgeEnd; ++inedgeIt)
 		{
+
 			std::cout << *inedgeIt << " ";
+
 		}
 		std::cout << "\n";
 	}
