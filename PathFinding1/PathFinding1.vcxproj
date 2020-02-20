@@ -131,7 +131,6 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Src\AIFG\Heuristic.cpp" />
-    <ClCompile Include="Src\AIFG\PathfindingList.cpp" />
     <ClCompile Include="Src\AIFG\NodeRecord.cpp" />
     <ClCompile Include="Src\AIFG\GraphManager.cpp" />
     <ClCompile Include="Src\AIFG\Connection.cpp" />
@@ -140,7 +139,6 @@
   <ItemGroup>
     <ClInclude Include="Src\AIFG\GraphStructures.h" />
     <ClInclude Include="Src\AIFG\Heuristic.h" />
-    <ClInclude Include="Src\AIFG\PathfindingList.h" />
     <ClInclude Include="Src\AIFG\NodeRecord.h" />
     <ClInclude Include="Src\AIFG\GraphManager.h" />
     <ClInclude Include="Src\AIFG\Connection.h" />

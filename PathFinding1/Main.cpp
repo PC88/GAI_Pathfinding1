@@ -46,11 +46,26 @@ int main()
 		write_graphviz_dp(std::cout, graph, dp, "node_id");
 	}
 
-	graph.m_edges;
 	std::cout << graph.m_vertices[1].m_property.ID << std::endl;
 	std::cout << graph.m_vertices[2].m_property.ID << std::endl;
 	std::cout << graph.m_vertices[3].m_property.ID << std::endl;
 	std::cout << graph.m_vertices[4].m_property.ID << std::endl;
+
+	graph_t::vertex_iterator vertexIt, vertexEnd;
+	graph_t::in_edge_iterator inedgeIt, inedgeEnd;
+	graph_t::in_edge_iterator outedgeIt, outedgeEnd;
+
+	tie(vertexIt, vertexEnd) = vertices(graph);
+	for (; vertexIt != vertexEnd; ++vertexIt)
+	{
+		std::cout << "incoming edges for " << *vertexIt << ": ";
+		tie(inedgeIt, inedgeEnd) = in_edges(*vertexIt, graph);
+		for (; inedgeIt != inedgeEnd; ++inedgeIt)
+		{
+			std::cout << *inedgeIt << " ";
+		}
+		std::cout << "\n";
+	}
 	std::cin.get();
 	return 0;
 }
