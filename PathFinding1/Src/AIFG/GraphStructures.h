@@ -12,7 +12,7 @@ struct Edge // CONNECTION
 	std::string label;
 	double weight; // perhaps you need this later as well, just an example
 	Vertex fromNode;
-	Vertex toNodes[4]; // every vertex has 4 connectionn
+	Vertex toNodes[4]; // every vertex has 4 connection
 };
 
 struct NodeRecord
@@ -27,4 +27,20 @@ struct NodeRecord
 	{
 		CLOSED = 0, OPEN = 1, UNVISITED = 2
 	};
+};
+
+
+struct Heuristic
+{
+	Vertex goalNode;
+
+	//float estimate(Vertex toNode, Vertex fromNode)
+	//{
+	//	
+	//}
+
+	//float estimate(int fromNode)
+	//{
+	//	return estimate(fromNode, goalNode);
+	//}
 };

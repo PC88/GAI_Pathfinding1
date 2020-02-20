@@ -130,13 +130,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Src\AIFG\Heuristic.cpp" />
     <ClCompile Include="Src\AIFG\GraphManager.cpp" />
     <ClCompile Include="Src\AIFG\Graph.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\AIFG\GraphStructures.h" />
-    <ClInclude Include="Src\AIFG\Heuristic.h" />
     <ClInclude Include="Src\AIFG\GraphManager.h" />
     <ClInclude Include="Src\AIFG\Graph.h" />
   </ItemGroup>

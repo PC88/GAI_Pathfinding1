@@ -21,9 +21,6 @@
     <ClCompile Include="Src\AIFG\GraphManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\AIFG\Heuristic.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -33,9 +30,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\AIFG\GraphManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\AIFG\Heuristic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\AIFG\GraphStructures.h">
