@@ -1,5 +1,8 @@
 #include "iostream"
 
+// credit to this example for the initial grounding
+// https://stackoverflow.com/questions/29496182/read-graphviz-in-boostgraph-pass-to-constructor
+
 // boost libraries
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/graphviz.hpp>
