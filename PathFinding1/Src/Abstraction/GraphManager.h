@@ -1,10 +1,11 @@
 #pragma once
 
 
+
 // container for Positions on the graph
 struct Position
 {
-	// unisgned as there are no - posiitons in the graph
+	// unsigned as there are no - positions in the graph
 	unsigned int y, x; // Cartesian X/Y
 };
 
@@ -42,6 +43,7 @@ public:
 		//       before deleted status
 		//       this probably wont matter here but dose not hurt
 
+	
 
 	// 64 nodes, 0 based
 	const char *name[64] =
@@ -152,9 +154,12 @@ public:
 	  {270, 570}, {420, 570}, {435, 570},	// 60, 61, 62
 	  {495, 570}							// 63
 	};
-	const char* getNodeNames();
+
+
 
 private:
+
+
 	GraphManager();
 	virtual ~GraphManager();
 

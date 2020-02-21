@@ -36,12 +36,12 @@ int main(int argc, char **argv)
 	// specify some types
 	typedef adjacency_list<listS, vecS, undirectedS, no_property,
 		property<edge_weight_t, cost> > mygraph_t;
-	typedef property_map<mygraph_t, edge_weight_t>::type WeightMap;
 	typedef mygraph_t::vertex_descriptor vertex;
+	typedef property_map<mygraph_t, edge_weight_t>::type WeightMap;
 	typedef mygraph_t::edge_descriptor edge_descriptor;
-	typedef std::pair<int, int> edge;
+	typedef std::pair<unsigned int, unsigned int> edge; // changed to unsigned int as there is no negative edge values
 
-	
+
 
 	edge edge_array[] = { 
 	  edge(Zero, Three), edge(Zero, Seven),edge(Zero, Six), edge(Zero, Thirteen),
@@ -105,6 +105,11 @@ int main(int argc, char **argv)
 	unsigned int num_edges = sizeof(edge_array) / sizeof(edge);
 
 
+	// set start and goal 
+	vertex start = 0;
+	vertex goal = 60;
+	std::cout << "Start vertex: " << GraphManager::instance().name[start] << std::endl;
+	std::cout << "Goal vertex: " << GraphManager::instance().name[goal] << std::endl;
 
 	// create graph
 	mygraph_t g_Graph(N);
@@ -117,20 +122,10 @@ int main(int argc, char **argv)
 		weightmap[e] = GraphManager::instance().weights[j];
 	}
 
-
-	// set start and goal 
-	vertex start = 0; 
-	vertex goal = 60; 
-
-
-	cout << "Start vertex: " << GraphManager::instance().name[start] << endl;
-	cout << "Goal vertex: " << GraphManager::instance().name[goal] << endl;
-
-
-
 	vector<mygraph_t::vertex_descriptor> p(num_vertices(g_Graph));
 	vector<cost> d(num_vertices(g_Graph));
-	try {
+	try 
+	{
 		// call astar named parameter interface
 		astar_search_tree
 		(g_Graph, start,
@@ -140,9 +135,11 @@ int main(int argc, char **argv)
 			distance_map(make_iterator_property_map(d.begin(), get(vertex_index, g_Graph))).
 			visitor(astar_goal_visitor<vertex>(goal)));
 	}
-	catch (found_goal fg) { // found a path to the goal
+	catch (found_goal fg) 
+	{ // found a path to the goal
 		list<vertex> shortest_path;
-		for (vertex v = goal;; v = p[v]) {
+		for (vertex v = goal;; v = p[v]) 
+		{
 			shortest_path.push_front(v);
 			if (p[v] == v)
 				break;
@@ -152,7 +149,9 @@ int main(int argc, char **argv)
 		list<vertex>::iterator spi = shortest_path.begin();
 		cout << GraphManager::instance().name[start];
 		for (++spi; spi != shortest_path.end(); ++spi)
+		{
 			cout << " -> " << GraphManager::instance().name[*spi];
+		}
 		cout << endl << "Total travel cost: " << d[goal] << endl;
 
 		std::cin.get();
@@ -164,5 +163,4 @@ int main(int argc, char **argv)
 
 	
 	return 0;
-
 }
