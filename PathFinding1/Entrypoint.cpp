@@ -138,9 +138,21 @@ int main(int argc, char **argv)
 	};
 	const char *name[] = 
 	{
-	  "Troy", "Lake Placid", "Plattsburgh", "Massena",
-	  "Watertown", "Utica", "Syracuse", "Rochester", "Buffalo",
-	  "Ithaca", "Binghamton", "Woodstock", "New York"
+	  "0", "1", "2", "3",
+	  "4", "5", "6", "7", "8",
+	  "9", "10", "11", "12"
+	   "13", "14", "15", "16",
+	  "17", "18", "19", "20", "21",
+	  "22", "23", "24", "25",
+		 "26", "27", "28", "29",
+	  "30", "31", "32", "33", "34",
+	  "35", "36", "37", "38",
+		 "39", "40", "41", "42",
+	  "43", "44", "45", "46", "47",
+	  "48", "48", "49", "50",
+		 "51", "52", "53", "54",
+	  "55", "56", "57", "58", "59",
+	  "60", "61", "62", "63"
 	};
 	location locations[] = { // lat/long
 	  {42.73, 73.68}, {44.28, 73.99}, {44.70, 73.46},
@@ -285,8 +297,8 @@ int main(int argc, char **argv)
 
 	// pick random start/goal
 	boost::mt19937 gen(std::time(0));
-	vertex start = random_vertex(g, gen);
-	vertex goal = random_vertex(g, gen);
+	vertex start = 0; //random_vertex(g, gen);
+	vertex goal = 60; //random_vertex(g, gen);
 
 
 	cout << "Start vertex: " << name[start] << endl;
@@ -327,8 +339,9 @@ int main(int argc, char **argv)
 		for (++spi; spi != shortest_path.end(); ++spi)
 			cout << " -> " << name[*spi];
 		cout << endl << "Total travel time: " << d[goal] << endl;
-		return 0;
+
 		std::cin.get();
+		return 0;
 	}
 
 	cout << "Didn't find a path from " << name[start] << "to"
