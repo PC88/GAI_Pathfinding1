@@ -125,7 +125,7 @@ int main(int argc, char **argv)
 		 "39", "40", "41", "42",
 	  "43", "44", "45", "46", "47",
 	  "48", "48", "49", "50",
-		 "51", "52", "53", "54",
+	"51", "52", "53", "54",
 	  "55", "56", "57", "58", "59",
 	  "60", "61", "62", "63"
 	};
@@ -136,7 +136,7 @@ int main(int argc, char **argv)
 	  {42.44, 76.50}, {42.10, 75.91}, {42.04, 74.11},
 	  {40.67, 73.94}
 	};
-	edge edge_array[] = { // 4 connections each - with the exception of: 3
+	edge edge_array[] = { 
 	  edge(Zero, Three), edge(Zero, Seven),edge(Zero, Six), edge(Zero, Thirteen),
 	  edge(One, Four), edge(One, Five),edge(One, Nine), edge(One,Ten),
 	  edge(Two, Eleven), edge(Two, Five),edge(Two, Ten), edge(Two, Twelve),
@@ -198,82 +198,81 @@ int main(int argc, char **argv)
 	unsigned int num_edges = sizeof(edge_array) / sizeof(edge);
 	cost weights[] = 
 	{ // in order from the list above top to bottom
-	  106, 106, 147, 171, //0
-	  33, 54, 87, 87, //1
-	  80, 87, 96, 106, //2
-	  54, 67, 84,//3
-	  61, 67, 67,//4
-	  33, //5
-	  33, 45,//6 
-	  67, 90, //7
-	  54, 63, //9
-	  63,//10
-	  42, 45, 128, //11
-	  33, 120,//12
-	  91, 123, //14
-	  33, 76,//15
-	  47, 54, 61,//16
-	  76, 108, 120, 138, //17
-	  75, 80,//18
-	  33, 61, 106, //19
-	  47, //20
-	  135, 152, 152, //21
-	  45, 76, 120, //23
-	  54,//24
-	  120, 147, //25
-	  45, 75, //26
-	  47,//27
-	  106, 135,//28
-	  75, 76, //29
-	  67, 87, 120, //31
-	  30, 91, 100, //32
-	  54, 67, 76, 80,//33
-	  75, 106,//34
-	  61, 75, //35
-	  33, 87, 105, //36
-	  54, //37
-	  15, 54, 67, //38
-	  42, 75, //39
-	  61, 150, 154,//40
-	  45, 47, //41
-	  47, 54,//43
-	  30, //44
-	  60,//45
-	  76, 120, 135,//46
-	  21, //47
-	  33, 60, 94,//48
-	  42, 91,//49
-	  67, //50
-	  91, //51
-	  33, 76, 96, //52
-	  61, //53
-	  45, 67, 120,//54
-	  33, 61, //55
-	  30, 120,//56
-	  90, 150,//57
-	  76, 135, //59
-	  150,//60
-	  15, 75, //61
-	  60,//62
+	  106, 106, 147, 171,		//0
+	  33, 54, 87, 87,			//1
+	  80, 87, 96, 106,			//2
+	  54, 67, 84,				//3
+	  61, 67, 67,				//4
+	  33,						//5
+	  33, 45,					//6 
+	  67, 90,					//7
+	  54, 63,					//9
+	  63,						//10
+	  42, 45, 128,				//11
+	  33, 120,					//12
+	  91, 123,					//14
+	  33, 76,					//15
+	  47, 54, 61,				//16
+	  76, 108, 120, 138,		//17
+	  75, 80,					//18
+	  33, 61, 106,				//19
+	  47,						//20
+	  135, 152, 152,			//21
+	  45, 76, 120,				//23
+	  54,						//24
+	  120, 147,					//25
+	  45, 75,					//26
+	  47,						//27
+	  106, 135,					//28
+	  75, 76,					//29
+	  67, 87, 120,				//31
+	  30, 91, 100,				//32
+	  54, 67, 76, 80,			//33
+	  75, 106,					//34
+	  61, 75,					//35
+	  33, 87, 105,				//36
+	  54,						//37
+	  15, 54, 67,				//38
+	  42, 75,					//39
+	  61, 150, 154,				//40
+	  45, 47,					//41
+	  47, 54,					//43
+	  30,						//44
+	  60,						//45
+	  76, 120, 135,				//46
+	  21,						//47
+	  33, 60, 94,				//48
+	  42, 91,					//49
+	  67,						//50
+	  91,						//51
+	  33, 76, 96,				//52
+	  61,						//53
+	  45, 67, 120,				//54
+	  33, 61,					//55
+	  30, 120,					//56
+	  90, 150,					//57
+	  76, 135,					//59
+	  150,						//60
+	  15, 75,					//61
+	  60,						//62
 	};
 
 
 	// create graph
-	mygraph_t g(N);
-	WeightMap weightmap = get(edge_weight, g);
+	mygraph_t g_Graph(N);
+	WeightMap weightmap = get(edge_weight, g_Graph);
 	for (std::size_t j = 0; j < num_edges; ++j) 
 	{
 		edge_descriptor e; bool inserted;
 		boost::tie(e, inserted) = add_edge(edge_array[j].first,
-			edge_array[j].second, g);
+			edge_array[j].second, g_Graph);
 		weightmap[e] = weights[j];
 	}
 
 
-	// pick random start/goal
-	boost::mt19937 gen(std::time(0));
-	vertex start = 0; //random_vertex(g, gen);
-	vertex goal = 60; //random_vertex(g, gen);
+	// set start and goal 
+	vertex start = 0; 
+	vertex goal = 60; 
 
 
 	cout << "Start vertex: " << name[start] << endl;
@@ -281,16 +280,16 @@ int main(int argc, char **argv)
 
 
 
-	vector<mygraph_t::vertex_descriptor> p(num_vertices(g));
-	vector<cost> d(num_vertices(g));
+	vector<mygraph_t::vertex_descriptor> p(num_vertices(g_Graph));
+	vector<cost> d(num_vertices(g_Graph));
 	try {
 		// call astar named parameter interface
 		astar_search_tree
-		(g, start,
+		(g_Graph, start,
 			distance_heuristic<mygraph_t, cost, location*>
 			(locations, goal),
-			predecessor_map(make_iterator_property_map(p.begin(), get(vertex_index, g))).
-			distance_map(make_iterator_property_map(d.begin(), get(vertex_index, g))).
+			predecessor_map(make_iterator_property_map(p.begin(), get(vertex_index, g_Graph))).
+			distance_map(make_iterator_property_map(d.begin(), get(vertex_index, g_Graph))).
 			visitor(astar_goal_visitor<vertex>(goal)));
 	}
 	catch (found_goal fg) { // found a path to the goal
