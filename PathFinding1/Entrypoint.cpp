@@ -30,21 +30,6 @@
 using namespace boost;
 using namespace std;
 
-
-// auxiliary types
-struct location
-{
-	float y, x; // lat, long
-};
-typedef float cost;
-
-
-
-
-
-
-
-
 int main(int argc, char **argv)
 {
 
@@ -56,22 +41,7 @@ int main(int argc, char **argv)
 	typedef mygraph_t::edge_descriptor edge_descriptor;
 	typedef std::pair<int, int> edge;
 
-	// specify data
-	// 63 nodes in the graph 
-	enum nodes 
-	{
-		Zero, One, Two, Three, Four, Five, Six,
-		Seven, Eight, Nine, Ten, Eleven, Twelve,
-		Thirteen, Fourteen, Fifteen, Sixteen, Seventeen,
-		Eighteen, Nineteen, Twenty, TwentyOne, TwentyTwo, TwentyThree,
-		TwentyFour, TwentyFive, TwentySix, TwentySeven, TwentyEight, TwentyNine,
-		Thirty, ThirtyOne, ThirtyTwo, ThirtyThree, ThirtyFour, ThirtyFive, ThirtySix,
-		ThirtySeven, ThirtyEight, ThirtyNine, Forty, FortyOne, FortyTwo, FortyThree,
-		FortyFour, FortyFive, FortySix, FortySeven, FortyEight, FortyNine, Fifty,
-		FiftyOne, FiftyTwo, FiftyThree, FiftyFour, FiftyFive, FiftySix, FiftySeven,
-		FiftyEight, FiftyNine, Sixty, SixtyOne, SixtyTwo, SixtyThree,
-		N
-	};
+	
 	const char *name[] = 
 	{
 	  "0", "1", "2", "3",
@@ -90,7 +60,8 @@ int main(int argc, char **argv)
 	  "55", "56", "57", "58", "59",
 	  "60", "61", "62", "63"
 	};
-	location locations[] = { // lat/long
+	Position positions[] = 
+	{ // 
 	  {42.73, 73.68}, {44.28, 73.99}, {44.70, 73.46},
 	  {44.93, 74.89}, {43.97, 75.91}, {43.10, 75.23},
 	  {43.04, 76.14}, {43.17, 77.61}, {42.89, 78.86},
@@ -247,8 +218,8 @@ int main(int argc, char **argv)
 		// call astar named parameter interface
 		astar_search_tree
 		(g_Graph, start,
-			distance_heuristic<mygraph_t, cost, location*>
-			(locations, goal),
+			distance_heuristic<mygraph_t, cost, Position*>
+			(positions, goal),
 			predecessor_map(make_iterator_property_map(p.begin(), get(vertex_index, g_Graph))).
 			distance_map(make_iterator_property_map(d.begin(), get(vertex_index, g_Graph))).
 			visitor(astar_goal_visitor<vertex>(goal)));
