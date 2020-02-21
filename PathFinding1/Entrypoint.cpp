@@ -21,6 +21,13 @@
 #include <fstream>
 #include <math.h>    // for sqrt
 
+// abstraction of base code
+#include "Abstraction/Heuristic.h"
+#include "Abstraction/Visitor.h"
+#include "Abstraction/WeightMap.h"
+
+#include "Abstraction/GraphManager.h"
+
 using namespace boost;
 using namespace std;
 
@@ -32,18 +39,7 @@ struct location
 };
 typedef float cost;
 
-template <class WeightMap>
-class time_writer 
-{
-public:
-	time_writer(WeightMap w) : wm(w) {}
-	template <class Edge>
-	void operator()(ostream &out, const Edge& e) const {
-		out << "[label=\"" << wm[e] << "\", fontsize=\"11\"]";
-	}
-private:
-	WeightMap wm;
-};
+
 
 
 // euclidean distance heuristic
