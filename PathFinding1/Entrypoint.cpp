@@ -32,31 +32,6 @@ struct location
 };
 typedef float cost;
 
-template <class Name, class LocMap>
-class city_writer 
-{
-public:
-	city_writer(Name n, LocMap l, float _minx, float _maxx,
-		float _miny, float _maxy,
-		unsigned int _ptx, unsigned int _pty)
-		: name(n), loc(l), minx(_minx), maxx(_maxx), miny(_miny),
-		maxy(_maxy), ptx(_ptx), pty(_pty) {}
-	template <class Vertex>
-	void operator()(ostream& out, const Vertex& v) const {
-		float px = 1 - (loc[v].x - minx) / (maxx - minx);
-		float py = (loc[v].y - miny) / (maxy - miny);
-		out << "[label=\"" << name[v] << "\", pos=\""
-			<< static_cast<unsigned int>(ptx * px) << ","
-			<< static_cast<unsigned int>(pty * py)
-			<< "\", fontsize=\"11\"]";
-	}
-private:
-	Name name;
-	LocMap loc;
-	float minx, maxx, miny, maxy;
-	unsigned int ptx, pty;
-};
-
 template <class WeightMap>
 class time_writer 
 {
@@ -304,13 +279,6 @@ int main(int argc, char **argv)
 	cout << "Start vertex: " << name[start] << endl;
 	cout << "Goal vertex: " << name[goal] << endl;
 
-	ofstream dotfile;
-	dotfile.open("test-astar-cities.dot");
-	write_graphviz(dotfile, g,
-		city_writer<const char **, location*>
-		(name, locations, 73.46, 78.86, 40.67, 44.93,
-			480, 400),
-		time_writer<WeightMap>(weightmap));
 
 
 	vector<mygraph_t::vertex_descriptor> p(num_vertices(g));
@@ -338,7 +306,7 @@ int main(int argc, char **argv)
 		cout << name[start];
 		for (++spi; spi != shortest_path.end(); ++spi)
 			cout << " -> " << name[*spi];
-		cout << endl << "Total travel time: " << d[goal] << endl;
+		cout << endl << "Total travel cost: " << d[goal] << endl;
 
 		std::cin.get();
 		return 0;
