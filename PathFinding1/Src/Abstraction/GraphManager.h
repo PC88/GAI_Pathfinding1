@@ -4,7 +4,8 @@
 // container for Positions on the graph
 struct Position
 {
-	float y, x; // Cartesian X/Y
+	// unisgned as there are no - posiitons in the graph
+	unsigned int y, x; // Cartesian X/Y
 };
 
 // simple typedef for cost representing weights
