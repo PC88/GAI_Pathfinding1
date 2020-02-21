@@ -122,8 +122,8 @@ int main(int argc, char **argv)
 		weightmap[e] = GraphManager::instance().weights[j];
 	}
 
-	vector<mygraph_t::vertex_descriptor> p(num_vertices(g_Graph));
-	vector<cost> d(num_vertices(g_Graph));
+	vector<mygraph_t::vertex_descriptor> descVector(num_vertices(g_Graph));
+	vector<cost> costVector(num_vertices(g_Graph));
 	try 
 	{
 		// call astar named parameter interface
@@ -131,17 +131,17 @@ int main(int argc, char **argv)
 		(g_Graph, start,
 			distance_heuristic<mygraph_t, cost, Position*>
 			(GraphManager::instance().positions, goal),
-			predecessor_map(make_iterator_property_map(p.begin(), get(vertex_index, g_Graph))).
-			distance_map(make_iterator_property_map(d.begin(), get(vertex_index, g_Graph))).
+			predecessor_map(make_iterator_property_map(descVector.begin(), get(vertex_index, g_Graph))).
+			distance_map(make_iterator_property_map(costVector.begin(), get(vertex_index, g_Graph))).
 			visitor(astar_goal_visitor<vertex>(goal)));
 	}
 	catch (found_goal fg) 
 	{ // found a path to the goal
 		list<vertex> shortest_path;
-		for (vertex v = goal;; v = p[v]) 
+		for (vertex v = goal;; v = descVector[v]) 
 		{
 			shortest_path.push_front(v);
-			if (p[v] == v)
+			if (descVector[v] == v)
 				break;
 		}
 		cout << "Shortest path from " << GraphManager::instance().name[start] << " to "
@@ -152,7 +152,7 @@ int main(int argc, char **argv)
 		{
 			cout << " -> " << GraphManager::instance().name[*spi];
 		}
-		cout << endl << "Total travel cost: " << d[goal] << endl;
+		cout << endl << "Total travel cost: " << costVector[goal] << endl;
 
 		std::cin.get();
 		return 0;
