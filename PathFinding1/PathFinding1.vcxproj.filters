@@ -21,7 +21,10 @@
     <ClCompile Include="Src\AIFG\GraphManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="Src\rebblob\implementation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Entrypoint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

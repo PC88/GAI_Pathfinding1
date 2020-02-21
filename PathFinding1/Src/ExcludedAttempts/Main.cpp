@@ -61,9 +61,7 @@ int main()
 		tie(inedgeIt, inedgeEnd) = in_edges(*vertexIt, graph);
 		for (; inedgeIt != inedgeEnd; ++inedgeIt)
 		{
-
 			std::cout << *inedgeIt << " ";
-
 		}
 		std::cout << "\n";
 	}

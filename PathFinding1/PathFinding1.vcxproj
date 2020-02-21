@@ -94,6 +94,7 @@
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)PathFinding1\Dependencies\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libboost_regex-vc141-mt-gd-x64-1_72.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/FORCE %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -129,9 +130,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Entrypoint.cpp" />
     <ClCompile Include="Src\AIFG\GraphManager.cpp" />
     <ClCompile Include="Src\AIFG\Graph.cpp" />
+    <ClCompile Include="Src\rebblob\implementation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\AIFG\GraphStructures.h" />
