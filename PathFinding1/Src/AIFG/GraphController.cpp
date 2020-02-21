@@ -1,16 +1,16 @@
-#include "AIFG\GraphManager.h"
+#include "AIFG\GraphController.h"
 
 
-GraphManager::GraphManager()
+GraphController::GraphController()
 {
 }
 
 
-GraphManager::~GraphManager()
+GraphController::~GraphController()
 {
 }
 
-//Connection* GraphManager::PathfindDijkstra(Graph graph, int start, int end)
+//Connection* GraphController::PathfindDijkstra(Graph graph, int start, int end)
 //{
 //	////Init the record for the start node
 //	//NodeRecord startRecord;
@@ -38,7 +38,7 @@ GraphManager::~GraphManager()
 //
 //}
 
-Connection * GraphManager::PathfindAstar(Graph graph, int start, int end, int heuristic)
+Connection * GraphController::PathfindAstar(Graph graph, int start, int end, int heuristic)
 {
 	/// Pseudo code for algorithm
 	// A*
@@ -163,7 +163,7 @@ Connection * GraphManager::PathfindAstar(Graph graph, int start, int end, int he
 	return nullptr;
 }
 
-Connection * GraphManager::PathfindNodeAstar(Graph graph, int start, int end, int heuristic)
+Connection * GraphController::PathfindNodeAstar(Graph graph, int start, int end, int heuristic)
 {
 	/// Pseudo code for algorithm
 	// Node Array A*

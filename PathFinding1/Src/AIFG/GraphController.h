@@ -4,11 +4,11 @@
 
 class Connection;
 
-class GraphManager
+class GraphController
 {
 public:
-	GraphManager();
-	virtual ~GraphManager();
+	GraphController();
+	virtual ~GraphController();
 
 	// will return a connection list when refactored
 	//Connection* PathfindDijkstra(Graph graph, int start, int end);
