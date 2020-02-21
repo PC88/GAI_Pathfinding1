@@ -131,11 +131,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Entrypoint.cpp" />
+    <ClCompile Include="Src\Abstraction\GraphManager.cpp" />
     <ClCompile Include="Src\AIFG\GraphController.cpp" />
     <ClCompile Include="Src\AIFG\Graph.cpp" />
     <ClCompile Include="Src\rebblob\implementation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Abstraction\GraphManager.h" />
     <ClInclude Include="Src\AIFG\GraphStructures.h" />
     <ClInclude Include="Src\AIFG\GraphController.h" />
     <ClInclude Include="Src\AIFG\Graph.h" />
